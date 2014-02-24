@@ -6,6 +6,7 @@ gem 'rails', '4.0.2'
 
 group :development do
 	gem 'sqlite3'
+	gem 'debugger', group: [:development, :test]
 end
 
 group :assets do
@@ -40,10 +41,10 @@ group :production do
 end
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+
