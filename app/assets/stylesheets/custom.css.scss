@@ -1,0 +1,49 @@
+@import "bootstrap";
+
+$grayMediumLight: #eaeaea;
+
+/* global */
+
+html {
+	overflow-y:	scroll;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3em;
+	letter-spacing: -1px;
+	margin-bottom: 15px;
+}
+
+p {
+	font-size: 1.1em;
+	line-height: 1.5em;
+}
+
+/* footer */
+footer {
+	border-top: 1px solid $grayMediumLight;
+	a {
+	color: grey;
+	float: left;
+	}
+	li a{
+		color: #995;
+	}
+	ul {
+  		float: right;
+  		list-style: none;
+  		li {
+		  float: left;
+		  margin-left: 10px;
+		}
+	}
+}
+	
+		
