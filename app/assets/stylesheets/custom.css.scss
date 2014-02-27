@@ -1,6 +1,7 @@
 @import "bootstrap";
 
 $grayMediumLight: #eaeaea;
+$earthy: #A19251;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -16,15 +17,16 @@ html {
 
 /* navbar */
 
-.navbar-brand {
+#logo {
+	color: $earthy;
+	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 2em;
-	font-stretch: expanded;
 	font-family: 'Roboto', sans-serif;
 }
 
 .nav_links {
-	margin-top: 3px;
+	margin-top: 1px;
 
 }
 
@@ -56,7 +58,7 @@ footer {
 	float: left;
 	}
 	li a{
-		color: #995;
+		color: $earthy;
 	}
 	ul {
   		float: right;
