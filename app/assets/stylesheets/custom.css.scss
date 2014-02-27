@@ -2,16 +2,37 @@
 
 $grayMediumLight: #eaeaea;
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* global */
 
 html {
 	overflow-y:	scroll;
 }
 
+/* navbar */
+
+.navbar-brand {
+	font-weight: bold;
+	font-size: 2em;
+	font-stretch: expanded;
+	font-family: 'Roboto', sans-serif;
+}
+
+.nav_links {
+	margin-top: 3px;
+
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-weight: bold;
 }
 
 h1 {
@@ -28,6 +49,7 @@ p {
 
 /* footer */
 footer {
+	margin-top: 15px;
 	border-top: 1px solid $grayMediumLight;
 	a {
 	color: grey;
@@ -46,4 +68,52 @@ footer {
 	}
 }
 	
-		
+/* sidebar */
+
+.gravatar {
+	float: left;
+	margin-left: 7.5px;
+	margin-right: 7.5px;
+	border-style: solid;
+	border-width: 3px;
+}
+
+aside {
+	section {
+		h1 {
+			font-size: 2em;
+			text-align: left;
+			margin-top: 4px;
+			margin-bottom: 4px;
+			letter-spacing: .5px;
+		}
+		h2 {
+			font-size: 1em;
+			text-align: left;
+			margin-top: 4px;
+			margin-bottom: 4px;
+		}
+	}
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 10px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}

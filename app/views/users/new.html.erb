@@ -1,2 +1,57 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, "Sign Up") %>
+
+<h1><b>Sign up</b></h1>
+
+<div class="container">
+	<%= form_for @user, html: { class: "form-horizontal", role: "form"} do |f| %>
+
+		<div class="form-group">
+			<%= f.label :username, class: "col-sm-2 control-label" %>
+			<div class="col-sm-8">
+				<%= f.text_field :username,  class: "form-control", placeholder: "Username - required" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :email, class: "col-sm-2 control-label" %>
+			<div class="col-sm-8">
+				<%= f.text_field :email,  class: "form-control", placeholder: "Email - required" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :first_name, class: "col-sm-2 control-label" %>
+			<div class="col-sm-8">
+				<%= f.text_field :first_name,  class: "form-control", placeholder: "First Name - optional" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :last_name, class: "col-sm-2 control-label" %>
+			<div class="col-sm-8">
+				<%= f.text_field :last_name,  class: "form-control", placeholder: "Last Name - optional" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :password, class: "col-sm-2 control-label" %>
+			<div class="col-sm-8">
+				<%= f.password_field :password,  class: "form-control", placeholder: "Password - required" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :password_confirmation, "Confirmation", class: "col-sm-2 control-label" %>
+			<div class="col-sm-8">
+				<%= f.password_field :password_confirmation,  class: "form-control", placeholder: "Password Confirmation - required" %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-5">
+			<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+			</div>
+		</div>
+	<% end %>
+</div>
+

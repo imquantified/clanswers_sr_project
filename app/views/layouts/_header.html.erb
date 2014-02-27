@@ -2,9 +2,14 @@
 	<div class="container-fluid">
 		<%= link_to "Clanswers", root_path, class: "navbar-brand", id: "logo" %>
 		<ul class="nav navbar-nav navbar-left">
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "About", about_path %></li>
-			<li><%= link_to "Sign in", "#" %></li>
+			<li><%= link_to "Home", root_path, class: "nav_links" %></li>
+			<li><%= link_to "About", about_path, class: "nav_links" %></li>
+
+			<% if  nil # user.signed_in? %>
+				<li><%= link_to "Sign in", "#", class: "nav_links" %></li>
+			<% else %>
+				<li><%= link_to "Sign up", signup_path, class: "nav_links" %></li>
+			<% end %>
 		</ul>
 	</div>
 </nav>
