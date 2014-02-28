@@ -1,6 +1,6 @@
 Clanswers::Application.routes.draw do
   
-  resources :users, :posts, :comments
+  resources :users
 
   root 'static_pages#home'
 
