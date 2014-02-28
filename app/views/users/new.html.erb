@@ -3,6 +3,12 @@
 <h1><b>Sign up</b></h1>
 
 <div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<%= render 'shared/error_messages' %>
+		</div>
+	</div>
+
 	<%= form_for @user, html: { class: "form-horizontal", role: "form"} do |f| %>
 
 		<div class="form-group">
