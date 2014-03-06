@@ -73,7 +73,7 @@ footer {
 	
 /* sidebar */
 
-#gravatar {
+.gravatar {
 	float: left;
 	margin-left: 7.5px;
 	margin-right: 7.5px;
@@ -110,6 +110,27 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+/* alerts */
+
+.alert-danger {
+	font-size: 1.2em
+}
+
+/* Users index */
+
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $earthy;
+		&:last-child {
+			border-bottom: 1px solid $earthy;
+		}
+	}
 }
 
 /* miscellaneous */
