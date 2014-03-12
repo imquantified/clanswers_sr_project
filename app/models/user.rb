@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+	has_many :quick_questions, dependent: :destroy
+	has_many :interest_questions, dependent: :destroy
+	has_many :thoughtful_questions, dependent: :destroy
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
@@ -10,6 +14,12 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6 }
 
 	has_secure_password
+
+	def feed
+		QuickQuestion.where("user_id = ?", id)
+		# InterestQuestion.where("user_id = ?", id)
+		# ThoughtfulQuestion.where("user_id = ?", id)
+	end
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

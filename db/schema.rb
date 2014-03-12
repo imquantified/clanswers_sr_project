@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306195638) do
+ActiveRecord::Schema.define(version: 20140311201145) do
+
+  create_table "interest_questions", force: true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interest_questions", ["user_id", "created_at"], name: "index_interest_questions_on_user_id_and_created_at"
+
+  create_table "quick_questions", force: true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quick_questions", ["user_id", "created_at"], name: "index_quick_questions_on_user_id_and_created_at"
+
+  create_table "thoughtful_questions", force: true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "thoughtful_questions", ["user_id", "created_at"], name: "index_thoughtful_questions_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "username"

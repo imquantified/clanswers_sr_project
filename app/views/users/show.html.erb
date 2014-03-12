@@ -1,7 +1,7 @@
 <% provide(:title, @user.username) %>
 
 <div class="row">
-	<aside class="col-sm-4">
+	<aside class="col-xs-3">
 		<section>
 			<h1>
 				<%= gravatar_for @user %>
@@ -12,4 +12,35 @@
 			</h2>
 		</section>
 	</aside>
+</div>
+
+<div class="row">
+	<div class="col-xs-offset-2 col-xs-8">
+		<% if @user.quick_questions.any? %>
+			<h3>Quick Questions (<%= @user.quick_questions.count %>)</h3>
+			<ol class="quick_questions">
+				<%= render @quick_questions %>
+			</ol>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-offset-2 col-xs-8">
+		<% if @user.interest_questions.any? %>
+			<h3>Interest Questions (<%= @user.interest_questions.count %>)</h3>
+			<ol class="interest_questions">
+				<%= render @interest_questions %>
+			</ol>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-offset-2 col-xs-8">
+		<% if @user.thoughtful_questions.any? %>
+			<h3>Thoughtful Questions (<%= @user.thoughtful_questions.count %>)</h3>
+			<ol class="thoughtful_questions">
+				<%= render @thoughtful_questions %>
+			</ol>
+		<% end %>
+	</div>
 </div>

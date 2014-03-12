@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @quick_questions = @user.quick_questions
+    @interest_questions = @user.interest_questions
+    @thoughtful_questions = @user.thoughtful_questions
   end
 
   def new
@@ -51,13 +54,14 @@ class UsersController < ApplicationController
   		params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation)
   	end
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        flash[:danger] = "Please sign in."
-        redirect_to signin_url 
-      end
-    end
+    #check if this becomes a break point
+    # def signed_in_user
+    #   unless signed_in?
+    #     store_location
+    #     flash[:danger] = "Please sign in."
+    #     redirect_to signin_url 
+    #   end
+    # end
 
     def correct_user
       @user = User.find(params[:id])
