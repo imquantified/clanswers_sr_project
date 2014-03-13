@@ -1,10 +1,17 @@
-<li id="<%= feed_item.id %>">
-  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
-  <span class="user">
-    <%= link_to feed_item.user.username, feed_item.user %>
-  </span>
-  <span class="content"><%= feed_item.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-  </span>
-</li>
+	<div class="question_feed">
+		<div class="col-s-2">
+		  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+		</div>
+		<div class="col-xs-10">
+			<span>
+				<%= link_to feed_item.user.username, feed_item.user, class: "feed_username" %>
+			</span>
+			<br>
+			<span class="feed_content"><%= feed_item.content %></span>
+			<br>
+			<span class="timestamp">
+					Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+			</span>
+		</div>
+		<br>
+	</div>

@@ -1,6 +1,7 @@
-<li>
-	<span class="interest_content"><%= interest_question.content %></span>
+<div class="profile_question_feed">
+	<span class="feed_content"><%= interest_question.content %></span>
+	<br>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(interest_question.created_at) %> ago.
 	</span>
-</li>
+</div>

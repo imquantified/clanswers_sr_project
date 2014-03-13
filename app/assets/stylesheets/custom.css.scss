@@ -2,6 +2,10 @@
 
 $grayMediumLight: #eaeaea;
 $earthy: #A19251;
+$lightEarthy: #bfb380;
+$blueish: #5160a1;
+$redish: #a15160;
+$gray: #bfbfbf;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -48,6 +52,10 @@ h1 {
 p {
 	font-size: 1.1em;
 	line-height: 1.5em;
+}
+
+a {
+	color: $blueish;
 }
 
 /* footer */
@@ -99,6 +107,13 @@ aside {
 	}
 }
 
+.info_username {
+	color: $redish;
+	font-weight: bold;
+	font-size: 2em;
+	font-family: 'Roboto', sans-serif;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -140,4 +155,53 @@ input {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+/* feed styling */
+
+.timestamp {
+ 	height: 100%;
+ 	color: $lightEarthy;
+ 	font-weight: light;
+ 	line-height: .75em;
+ 	font-size: 1em;
+ 	text-align: left;
+ }
+
+.question_feed {
+	height: 160px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid $grayMediumLight;
+}
+
+.profile_question_feed {
+	height: 90px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid $grayMediumLight;
+}
+.feed_username {
+	color: $redish;
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 1.4em;
+	font-family: 'Roboto', sans-serif;
+}
+
+.feed_content {
+	font-size: 1.19em;
+	font-weight: normal;
+	text-align: left;
+	line-height: .6em;
+	word-wrap: break-word;
+	overflow: visible;
+}
+
+.feed_header {
+	color: $earthy;
+	margin-bottom: 10px;
+	border-bottom: 3px solid $blueish;
+	font-family: 'Roboto', sans-serif;
+	line-height: 2.1em;
 }
