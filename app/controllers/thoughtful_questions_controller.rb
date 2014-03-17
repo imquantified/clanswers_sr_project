@@ -4,8 +4,8 @@ class ThoughtfulQuestionsController < ApplicationController
 	def create
 		@thoughtful_question = current_user.thoughtful_questions.build(question_params)
 		if @thoughtful_question.save
-			flash[:success] = "Micropost created!"
-			redirect_to root_url
+			flash[:success] =  "Thoughtful question created!"
+			redirect_to :back
 		else
 			@feed_items = []
 			render 'static_pages/home'
@@ -16,6 +16,8 @@ class ThoughtfulQuestionsController < ApplicationController
 	end
 
 	def show
+		@thoughtful_question = current_user.thoughtful_questions.build
+		@feed_items = current_user.tq_feed.paginate(page: params[:page])	
 	end
 
 	private

@@ -15,10 +15,16 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
-	def feed
+	def qq_feed
 		QuickQuestion.where("user_id = ?", id)
-		# InterestQuestion.where("user_id = ?", id)
-		# ThoughtfulQuestion.where("user_id = ?", id)
+	end
+
+	def iq_feed
+		InterestQuestion.where("user_id = ?", id)
+	end
+
+	def tq_feed
+		ThoughtfulQuestion.where("user_id = ?", id)
 	end
 
 	def User.new_remember_token

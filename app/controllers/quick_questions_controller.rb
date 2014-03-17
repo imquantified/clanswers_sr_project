@@ -4,8 +4,8 @@ class QuickQuestionsController < ApplicationController
 	def create
 		@quick_question = current_user.quick_questions.build(question_params)
 		if @quick_question.save
-			flash[:success] = "Micropost created!"
-			redirect_to root_url
+			flash[:success] = "Quick question created!"
+			redirect_to :back
 		else
 			@feed_items = []
 			render 'static_pages/home'
@@ -16,6 +16,9 @@ class QuickQuestionsController < ApplicationController
 	end
 
 	def show
+		@user = current_user
+		@quick_question = @user.quick_questions.build
+		@feed_items = current_user.qq_feed.paginate(page: params[:page])
 	end
 
 	private

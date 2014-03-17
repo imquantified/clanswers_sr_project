@@ -4,6 +4,10 @@
 </h1>
 <span>
 	<%= pluralize(current_user.quick_questions.count, "Quick Question") %>
+	<br />
+	<%= pluralize(current_user.interest_questions.count, "Interest Question") %>
+	<br />
+	<%= pluralize(current_user.thoughtful_questions.count, "Thoughtful Question") %>
 </span>
 <br>
 <span>

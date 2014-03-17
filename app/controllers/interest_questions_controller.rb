@@ -4,8 +4,8 @@ class InterestQuestionsController < ApplicationController
 	def create
 		@interest_question = current_user.interest_questions.build(question_params)
 		if @interest_question.save
-			flash[:success] = "Micropost created!"
-			redirect_to root_url
+			flash[:success] = "Interest question created!"
+			redirect_to :back
 		else
 			@feed_items = []
 			render 'static_pages/home'
@@ -16,6 +16,8 @@ class InterestQuestionsController < ApplicationController
 	end
 
 	def show
+		@interest_question = current_user.interest_questions.build
+		@feed_items = current_user.iq_feed.paginate(page: params[:page])
 	end
 
 	private

@@ -1,4 +1,4 @@
-<%= form_for(@quick_question) do |f| %>
+<%= form_for @quick_question do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="quick_question_field">
 		<%= f.text_area :content, placeholder: "Ask a quick question..." %>

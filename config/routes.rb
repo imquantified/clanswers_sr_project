@@ -5,6 +5,8 @@ Clanswers::Application.routes.draw do
   resources :quick_questions, only: [:create, :destroy, :show]
   resources :interest_questions, only: [:create, :destroy, :show]
   resources :thoughtful_questions, only: [:create, :destroy, :show]
+  #tracks updates
+  resources :activities
 
   root 'static_pages#home'
 

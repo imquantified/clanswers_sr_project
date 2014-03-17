@@ -1,5 +1,5 @@
 <div class="profile_question_feed">
-	<span class="feed_content"><%= thoughtful_question.content %></span>
+	<span class="feed_content"><%= truncate(thoughtful_question.content, length: 140, separator: ' ') { link_to " Expand", '#'} %></span>
 	<br>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words( thoughtful_question.created_at) %> ago.
