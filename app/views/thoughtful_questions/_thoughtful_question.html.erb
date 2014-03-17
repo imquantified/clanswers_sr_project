@@ -1,7 +1,10 @@
 <div class="profile_question_feed">
-	<span class="feed_content"><%= truncate(thoughtful_question.content, length: 140, separator: ' ') { link_to " Expand", '#'} %></span>
+	<span class="feed_content"><%= truncate(wrap(thoughtful_question.content), length: 140, separator: ' ') { link_to " Expand", '#'} %></span>
 	<br>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words( thoughtful_question.created_at) %> ago.
 	</span>
+	<% if current_user?(thoughtful_question.user) %>
+		<%= link_to "delete", thoughtful_question, method: :delete, data: { confirm: "Confirm to delete question."}, title: thoughtful_question.content%>
+	<% end %>	
 </div>
