@@ -2,14 +2,21 @@
 <h1 class="info_username">
 	<%= current_user.username %>
 </h1>
-<span>
+<br>
+<br>
+<span class="profile_bar_margin">
 	<%= pluralize(current_user.quick_questions.count, "Quick Question") %>
+</span>
 	<br />
+<span class="profile_bar_margin">
 	<%= pluralize(current_user.interest_questions.count, "Interest Question") %>
+</span>
 	<br />
+<span class="profile_bar_margin">
 	<%= pluralize(current_user.thoughtful_questions.count, "Thoughtful Question") %>
 </span>
 <br>
-<span>
-	<%= link_to "View my profile", current_user %>
+<br>
+<span class="profile_bar_margin">
+	<%= link_to "View my profile", current_user, class: "profile_link" %>
 </span>

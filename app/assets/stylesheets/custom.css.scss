@@ -35,6 +35,14 @@ html {
 	font-size: 1.25em;
 }
 
+.profile_link {
+	color: $earthy;
+	line-height: 1.5em;
+	font-size: 1.5em;
+	letter-spacing: -.5px;
+}
+
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -114,6 +122,10 @@ aside {
 	font-family: 'Roboto', sans-serif;
 }
 
+.profile_bar_margin {
+	margin-left: 7.5px;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -180,6 +192,8 @@ input {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid $grayMediumLight;
+	word-wrap: break-word;
+	overflow: visible;
 }
 .feed_username {
 	color: $redish;
@@ -204,4 +218,12 @@ input {
 	border-bottom: 3px solid $blueish;
 	font-family: 'Roboto', sans-serif;
 	line-height: 2.1em;
+}
+
+.expanded_link {
+	text-decoration: none;
+	text-align: left;
+	line-height: 1.1em;
+	word-wrap: break-word;
+	overflow: visible;
 }

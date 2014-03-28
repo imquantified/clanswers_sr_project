@@ -1,6 +1,11 @@
 <div class="profile_question_feed">
-	<span class="feed_content"><%= truncate(wrap(quick_question.content), length: 140, separator: ' ') { link_to " Expand", '#'} %></span>
-	<br>
+	<div class="expanded_link">
+	  <% if quick_question.content.length > 140 %>
+	    <%= link_to_function truncate(wrap(quick_question.content), length: 140, omission: "... (click to expand)"), "$(this).parent().html('#{escape_javascript quick_question.content}')", class: "expanded_link" %>
+	  <% else %>
+	  	<%= wrap(quick_question.content) %>
+	  <% end %>
+	</div>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(quick_question.created_at) %> ago.
 	</span>
