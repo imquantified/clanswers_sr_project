@@ -1,27 +1,27 @@
-	<div class="question_feed">
-		<div class="col-s-2">
-		  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
-		</div>
-		<div class="col-xs-10">
-			<span>
-				<%= link_to feed_item.user.username, feed_item.user, class: "feed_username" %>
-			</span>
-			<br>
-			<span class="feed_content">
-				<% if feed_item.content.length > 140 %>
-					<% content = wrap(feed_item.content) %>
-					<%= link_to_function truncate(content, length: 140, omission: "... (click to expand)"), "$(this).parent().html('#{escape_javascript feed_item.content}')", class: "expanded_link" %>
-				<% else %>
-					<%= wrap(feed_item.content) %>
-				<% end %>
-			</span>
-			<br>
-			<span class="timestamp">
-					Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-			</span>
-			<% if current_user?(feed_item.user) %>
-				<%= link_to "delete", feed_item, method: :delete, data: { confirm: "Confirm to delete question"}, title: feed_item.content %>
-			<% end %>
-		</div>
-		<br>
+<div class="question_feed row">
+	<div class="col-s-2">
+	  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
 	</div>
+	<div class="col-xs-10">
+		<span>
+			<%= link_to feed_item.user.username, feed_item.user, class: "feed_username" %>
+		</span>
+		<br>
+		<span class="feed_content">
+			<% if feed_item.content.length > 140 %>
+				<% content = wrap(feed_item.content) %>
+				<%= link_to_function truncate(content, length: 140, omission: "... (click to expand)"), "$(this).parent().html('#{escape_javascript feed_item.content}')", class: "expanded_link" %>
+			<% else %>
+				<%= wrap(feed_item.content) %>
+			<% end %>
+		</span>
+		<br>
+		<span class="timestamp">
+				Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+		</span>
+		<% if current_user?(feed_item.user) %>
+			<%= link_to "delete", feed_item, method: :delete, data: { confirm: "Confirm to delete question"}, title: feed_item.content %>
+		<% end %>
+	</div>
+	<br>
+</div>

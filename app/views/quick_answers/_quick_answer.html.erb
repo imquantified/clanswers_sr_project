@@ -1,0 +1,15 @@
+<div class="profile_question_feed row">
+	<div class="expanded_link">
+	  <% if quick_answer.content.length > 140 %>
+	    <%= link_to_function truncate(wrap(quick_answer.content), length: 140, omission: "... (click to expand)"), "$(this).parent().html('#{escape_javascript quick_answer.content}')", class: "expanded_link" %>
+	  <% else %>
+	  	<%= wrap(quick_answer.content) %>
+	  <% end %>
+	</div>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(quick_answer.created_at) %> ago.
+	</span>
+	<% if current_user?(quick_answer.user) %>
+		<%= link_to "delete", quick_answer, method: :delete, data: { confirm: "Confirm to delete question."}, title: quick_answer.content%>
+	<% end %>
+</div>

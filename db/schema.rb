@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314015709) do
+ActiveRecord::Schema.define(version: 20140329184350) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140314015709) do
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
 
+  create_table "interest_answers", force: true do |t|
+    t.integer  "interest_question_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interest_answers", ["user_id"], name: "index_interest_answers_on_user_id"
+
   create_table "interest_questions", force: true do |t|
     t.integer  "user_id"
     t.text     "content"
@@ -39,6 +49,16 @@ ActiveRecord::Schema.define(version: 20140314015709) do
 
   add_index "interest_questions", ["user_id", "created_at"], name: "index_interest_questions_on_user_id_and_created_at"
 
+  create_table "quick_answers", force: true do |t|
+    t.integer  "quick_question_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quick_answers", ["user_id"], name: "index_quick_answers_on_user_id"
+
   create_table "quick_questions", force: true do |t|
     t.integer  "user_id"
     t.text     "content"
@@ -47,6 +67,16 @@ ActiveRecord::Schema.define(version: 20140314015709) do
   end
 
   add_index "quick_questions", ["user_id", "created_at"], name: "index_quick_questions_on_user_id_and_created_at"
+
+  create_table "thoughtful_answers", force: true do |t|
+    t.integer  "thoughtful_question_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "thoughtful_answers", ["user_id"], name: "index_thoughtful_answers_on_user_id"
 
   create_table "thoughtful_questions", force: true do |t|
     t.integer  "user_id"

@@ -27,11 +27,16 @@ namespace :db do
 
 		users = User.all(limit: 6)
 		50.times do
-			content = Faker::Lorem.sentence(7)
+			content_one = Faker::Lorem.sentence(7)
+			content_two = Faker::Lorem.sentence(7)
+			content_three = Faker::Lorem.sentence(7)
 			users.each do |user| 
-				user.quick_questions.create!(content: content)
-				user.interest_questions.create!(content: content)
-				user.thoughtful_questions.create!(content: content)
+				user.quick_questions.create!(content: content_one)
+				user.interest_questions.create!(content: content_two)
+				user.thoughtful_questions.create!(content: content_three)
+				user.quick_answers.create!(content: content_three)
+				user.interest_answers.create!(content: content_one)
+				user.thoughtful_answers.create!(content: content_two)
 			end 
 		end
 	end

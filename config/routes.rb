@@ -1,6 +1,10 @@
 Clanswers::Application.routes.draw do
   
   resources :users
+  resources :quick_answers
+  resources :interest_answers
+  resources :thoughtful_answers
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :quick_questions, only: [:create, :destroy, :show]
   resources :interest_questions, only: [:create, :destroy, :show]

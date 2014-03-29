@@ -1,9 +1,11 @@
 class QuickQuestion < ActiveRecord::Base
-	#to track updates and such
+	#to track updates
 	include PublicActivity::Model
 	tracked
 
+	has_many :quick_answers, dependent: :destroy
 	belongs_to :user
+	
  	default_scope -> { order('created_at DESC') }
 	validates :user_id, presence: true
 	# Character limit = 280

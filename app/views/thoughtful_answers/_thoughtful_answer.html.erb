@@ -1,0 +1,15 @@
+<div class="profile_question_feed">
+	<div class="expanded_link">
+	  <% if thoughtful_answer.content.length > 140 %>
+	    <%= link_to_function truncate(wrap(thoughtful_answer.content), length: 140, omission: "... (click to expand)"), "$(this).parent().html('#{escape_javascript thoughtful_answer.content}')", class: "expanded_link" %>
+	  <% else %>
+	  	<%= wrap(thoughtful_answer.content) %>
+	  <% end %>
+	</div>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(thoughtful_answer.created_at) %> ago.
+	</span>
+	<% if current_user?(thoughtful_answer.user) %>
+		<%= link_to "delete", thoughtful_answer, method: :delete, data: { confirm: "Confirm to delete question."}, title: thoughtful_answer.content%>
+	<% end %>
+</div>

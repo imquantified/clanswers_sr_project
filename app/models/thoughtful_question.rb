@@ -2,6 +2,8 @@ class ThoughtfulQuestion < ActiveRecord::Base
 	#track updates
 	include PublicActivity::Model
 	tracked
+
+	has_many :thoughtful_answers, dependent: :destroy
 	
 	belongs_to :user
  	default_scope -> { order('created_at DESC') }

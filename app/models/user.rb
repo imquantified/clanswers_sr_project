@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
 	has_many :interest_questions, dependent: :destroy
 	has_many :thoughtful_questions, dependent: :destroy
 
+	has_many :quick_answers, dependent: :destroy
+	has_many :interest_answers, dependent: :destroy
+	has_many :thoughtful_answers, dependent: :destroy
+
+
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
@@ -15,6 +21,7 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
+	#question query methods
 	def qq_feed
 		QuickQuestion.where("user_id = ?", id)
 	end
@@ -25,6 +32,19 @@ class User < ActiveRecord::Base
 
 	def tq_feed
 		ThoughtfulQuestion.where("user_id = ?", id)
+	end
+
+	#answer query methods
+	def qa_feed
+		QuickAnswer.where("user_id = ?", id)
+	end
+
+	def ia_feed
+		InterestAnswer.where("user_id = ?", id)
+	end
+
+	def ta_feed
+		ThoughtfulAnswer.where("user_id = ?", id)
 	end
 
 	def User.new_remember_token

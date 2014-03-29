@@ -9,9 +9,14 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    
     @quick_questions = @user.quick_questions
     @interest_questions = @user.interest_questions
     @thoughtful_questions = @user.thoughtful_questions
+
+    @quick_answers = @user.quick_answers
+    @interest_answers = @user.interest_answers
+    @thoughtful_answers = @user.thoughtful_answers
   end
 
   def new

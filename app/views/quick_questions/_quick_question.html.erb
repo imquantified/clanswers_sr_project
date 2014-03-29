@@ -1,4 +1,4 @@
-<div class="profile_question_feed">
+<div class="profile_question_feed row CHECKTHIS">
 	<div class="expanded_link">
 	  <% if quick_question.content.length > 140 %>
 	    <%= link_to_function truncate(wrap(quick_question.content), length: 140, omission: "... (click to expand)"), "$(this).parent().html('#{escape_javascript quick_question.content}')", class: "expanded_link" %>
