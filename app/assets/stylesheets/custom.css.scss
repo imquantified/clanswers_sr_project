@@ -180,21 +180,12 @@ input {
  	text-align: left;
  }
 
-.question_feed {
-	height: 130px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid $grayMediumLight;
+.profile_question_feed {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1.5px solid $grayMediumLight;
 }
 
-.profile_question_feed {
-	height: 65px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-bottom: 1px solid $grayMediumLight;
-	word-wrap: break-word;
-	overflow: visible;
-}
 .feed_username {
 	color: $redish;
 	font-weight: bold;
