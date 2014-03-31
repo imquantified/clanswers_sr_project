@@ -1,5 +1,6 @@
 class InterestAnswer < ActiveRecord::Base
 	belongs_to :interest_question
+	# just store user_id without "belonging to it"
 	belongs_to :user
 
 	validates :user_id, presence: true

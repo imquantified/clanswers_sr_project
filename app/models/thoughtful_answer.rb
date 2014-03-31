@@ -1,5 +1,6 @@
 class ThoughtfulAnswer < ActiveRecord::Base
 	belongs_to :thoughtful_question
+	# just store user_id without "belonging to it"
 	belongs_to :user
 
 	validates :user_id, presence: true
