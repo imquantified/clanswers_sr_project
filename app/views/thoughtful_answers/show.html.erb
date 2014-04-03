@@ -1,0 +1,18 @@
+<% provide(:title, "Thoughtful Answers - #{current_user.username} ") %>
+
+<div class="row">
+	<aside class="col-xs-3">
+		<section>
+			<%= render 'shared/user_info' %>
+		</section>
+		<br>
+		<section>
+			<% provide(:placeholder_text, "Answer a thoughtful question...") %>
+			<%= render partial: "shared/input_form", locals: { input_item: @thoughtful_answer } %>
+		</section>
+	</aside>
+	<div class="col-xs-9">
+		<h1 class="feed_header">Thoughtful Answers Feed</h1>
+		<%= render 'shared/feed' %>
+	</div>
+</div>

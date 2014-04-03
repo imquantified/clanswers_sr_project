@@ -7,7 +7,8 @@
 		</section>
 		<br>
 		<section>
-			<%= render 'thoughtful_questions/thoughtful_question_form' %>
+			<% provide(:placeholder_text, "Ask a thoughtful question...") %>
+			<%= render partial: "shared/input_form", locals: { input_item: @thoughtful_question } %>
 		</section>
 	</aside>
 	<div class="col-xs-9">

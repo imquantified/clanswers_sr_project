@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
 	  	@thoughtful_question = current_user.thoughtful_questions.build
   		
   		#Only queries Quickquestion feed at this time
-  		@feed_items = current_user.qq_feed.paginate(page: params[:page])
+  		# @feed_items = current_user.qq_feed.paginate(page: params[:page])
   	end
   end
 

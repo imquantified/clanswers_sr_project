@@ -1,9 +1,10 @@
 Clanswers::Application.routes.draw do
   
   resources :users
-  resources :quick_answers
-  resources :interest_answers
-  resources :thoughtful_answers
+  
+  resources :quick_answers, only: [:create, :destroy, :show]
+  resources :interest_answers, only: [:create, :destroy, :show]
+  resources :thoughtful_answers, only: [:create, :destroy, :show]
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :quick_questions, only: [:create, :destroy, :show]
@@ -21,7 +22,13 @@ Clanswers::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
-  #tentatively added routes
+  #answer routes
+  match '/qa',  to: 'quick_answers#show',     via: 'get'
+  match '/ia',  to: 'interest_answers#show',     via: 'get'
+  match '/ta',  to: 'thoughtful_answers#show',     via: 'get'
+
+
+  #question routes
   match '/qq',  to: 'quick_questions#show',     via: 'get'
   match '/iq',  to: 'interest_questions#show',     via: 'get'
   match '/tq',  to: 'thoughtful_questions#show',     via: 'get'

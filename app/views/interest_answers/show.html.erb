@@ -7,12 +7,12 @@
 		</section>
 		<br>
 		<section>
-			<% provide(:placeholder_text, "Ask an interest question...") %>
-			<%= render partial: "shared/input_form", locals: { input_item: @interest_question } %>
+			<% provide(:placeholder_text, "Answer an interest question...") %>
+			<%= render partial: "shared/input_form", locals: { input_item: @interest_answer } %>
 		</section>
 	</aside>
 	<div class="col-xs-9">
-		<h1 class="feed_header">Interest Questions Feed</h1>
+		<h1 class="feed_header">Interest Answers Feed</h1>
 		<%= render 'shared/feed' %>
 	</div>
 </div>

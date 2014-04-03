@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
-	#question query methods
+	#simple question query methods
 	def qq_feed
 		QuickQuestion.where("user_id = ?", id)
 	end
@@ -32,18 +32,18 @@ class User < ActiveRecord::Base
 		ThoughtfulQuestion.where("user_id = ?", id)
 	end
 
-	#answer query methods
-	# def qa_feed
-	# 	QuickAnswer.where("user_id = ?", id)
-	# end
+	#simple answer query methods, for now
+	def qa_feed
+		QuickAnswer.where("user_id = ?", id)
+	end
 
-	# def ia_feed
-	# 	InterestAnswer.where("user_id = ?", id)
-	# end
+	def ia_feed
+		InterestAnswer.where("user_id = ?", id)
+	end
 
-	# def ta_feed
-	# 	ThoughtfulAnswer.where("user_id = ?", id)
-	# end
+	def ta_feed
+		ThoughtfulAnswer.where("user_id = ?", id)
+	end
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

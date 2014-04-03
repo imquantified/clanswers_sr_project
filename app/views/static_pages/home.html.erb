@@ -8,15 +8,18 @@
 			</section>
 			<br>
 			<section>
-				<%= render 'quick_questions/quick_question_form' %>
+				<% provide(:placeholder_text, "Ask a quick question...") %>
+				<%= render 'shared/input_form', locals: { input_item: @quick_question } %>
 			</section>
 			<br />
 			<section>
-				<%= render 'interest_questions/interest_question_form' %>
+				<% provide(:placeholder_text, "Ask a interest question...") %>
+				<%= render 'shared/input_form', locals: { input_item: @interest_question } %>
 			</section>
 			<br />
 			<section>
-				<%= render 'thoughtful_questions/thoughtful_question_form' %>
+				<% provide(:placeholder_text, "Ask a thoughtful question...") %>
+				<%= render 'shared/input_form', locals: { input_item: @thoughtful_question} %>
 			</section>
 		</aside>
 		<div class="col-xs-9">

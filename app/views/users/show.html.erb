@@ -30,7 +30,7 @@
 			<ol class="quick_questions">
 				<%= render @quick_answers.all(limit: 5) %>
 			</ol>
-			<%= link_to "Quick Answers", "#" %>
+			<%= link_to "Quick Answers", qa_path %>
 		<% end %>
 	</div>
 </div>
@@ -50,7 +50,7 @@
 			<ol class="interest_questions">
 				<%= render @interest_answers.all(limit: 5) %>
 			</ol>
-			<%= link_to "Interest Answers", "#" %>
+			<%= link_to "Interest Answers", ia_path %>
 		<% end %>		
 	</div>
 </div>
@@ -70,7 +70,7 @@
 			<ol class="thoughtful_questions">
 				<%= render @thoughtful_answers.all(limit: 5) %>
 			</ol>
-			<%= link_to "Thoughtful Answers", "#" %>
+			<%= link_to "Thoughtful Answers", ta_path %>
 		<% end %>		
 	</div>
 </div>
