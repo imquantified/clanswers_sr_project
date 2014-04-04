@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
 		ThoughtfulQuestion.where("user_id = ?", id)
 	end
 
+	def all_question_feed
+		#Could be used to pull other user data? Pulls every person, essentially a quick question feed for everyone
+		QuickQuestion.joins('LEFT OUTER JOIN users ON quick_questions.user_id = users.id')
+	end
+
 	#simple answer query methods, for now
 	def qa_feed
 		QuickAnswer.where("user_id = ?", id)
