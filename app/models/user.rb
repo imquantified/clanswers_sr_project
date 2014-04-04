@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :quick_questions, dependent: :destroy
-	has_many :interest_questions, dependent: :destroy
-	has_many :thoughtful_questions, dependent: :destroy
-
-	has_many :quick_answers, dependent: :destroy
-	has_many :interest_answers, dependent: :destroy
-	has_many :thoughtful_answers, dependent: :destroy
+	has_many :questions, dependent: :destroy
+	has_many :answers, dependent: :destroy
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
@@ -21,33 +16,34 @@ class User < ActiveRecord::Base
 
 	#simple question query methods
 	def qq_feed
-		QuickQuestion.where("user_id = ?", id)
+		Question.where("user_id = ?", id)
 	end
 
+	#distinctions between questions and answers is meaningless for now.
 	def iq_feed
-		InterestQuestion.where("user_id = ?", id)
+		Question.where("user_id = ?", id)
 	end
 
 	def tq_feed
-		ThoughtfulQuestion.where("user_id = ?", id)
+		Question.where("user_id = ?", id)
 	end
 
 	def all_question_feed
 		#Could be used to pull other user data? Pulls every person, essentially a quick question feed for everyone
-		QuickQuestion.joins('LEFT OUTER JOIN users ON quick_questions.user_id = users.id')
+		Question.joins('LEFT OUTER JOIN users ON questions.user_id = users.id')
 	end
 
 	#simple answer query methods, for now
 	def qa_feed
-		QuickAnswer.where("user_id = ?", id)
+		Answer.where("user_id = ?", id)
 	end
 
 	def ia_feed
-		InterestAnswer.where("user_id = ?", id)
+		Answer.where("user_id = ?", id)
 	end
 
 	def ta_feed
-		ThoughtfulAnswer.where("user_id = ?", id)
+		Answer.where("user_id = ?", id)
 	end
 
 	def User.new_remember_token

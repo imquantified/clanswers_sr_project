@@ -1,22 +1,14 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
-<h1 class="info_username">
-	<%= current_user.username %>
-</h1>
-<br>
-<br>
-<span class="profile_bar_margin">
-	<%= pluralize(current_user.quick_questions.count, "Quick Question") %>
+<span class="row">
+	<%= link_to gravatar_for(current_user, size: 50), current_user %>
+	<h1 class="info_username">
+		<%= current_user.username %>
+	</h1>
 </span>
+<span class="profile_bar_margin row">
+	<%= pluralize(current_user.questions.count, "Question") %>
 	<br />
-<span class="profile_bar_margin">
-	<%= pluralize(current_user.interest_questions.count, "Interest Question") %>
+	<%= pluralize(current_user.answers.count, "Answer") %>
 </span>
-	<br />
-<span class="profile_bar_margin">
-	<%= pluralize(current_user.thoughtful_questions.count, "Thoughtful Question") %>
-</span>
-<br>
-<br>
-<span class="profile_bar_margin">
+<span class="profile_bar_margin row">
 	<%= link_to "View my profile", current_user, class: "profile_link" %>
 </span>

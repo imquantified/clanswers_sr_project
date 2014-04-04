@@ -2,12 +2,10 @@ class StaticPagesController < ApplicationController
 
   def home
   	if signed_in?
-	  	@quick_question = current_user.quick_questions.build
-	  	@interest_question = current_user.interest_questions.build
-	  	@thoughtful_question = current_user.thoughtful_questions.build
+	  	@question = current_user.questions.build
   		
   		#Only queries Quickquestion feed at this time
-  		@feed_items = current_user.all_question_feed().paginate(page: params[:page])
+  		@feed_items = current_user.all_question_feed.paginate(page: params[:page])
   	end
   end
 

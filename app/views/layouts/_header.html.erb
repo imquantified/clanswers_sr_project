@@ -10,18 +10,14 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle nav_links" data-toggle="dropdown">Questions <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu">
-						<li role="presentation"><%= link_to "Quick Questions", qq_path %></li>
-						<li role="presentation"><%= link_to "Interest Questions", iq_path %></li>
-						<li role="presentation"><%= link_to "Thoughtful Questions", tq_path %></li>
+						<li role="presentation"><%= link_to "Questions", q_path %></li>
 					</ul>
 				</li>
 
 				<li class="dropdown">
 					<a class="dropdown-toggle nav_links" data-toggle="dropdown">Answers <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu">
-						<li role="presentation"><%= link_to "Quick Answers", qa_path %></li>
-						<li role="presentation"><%= link_to "Interest Answers", ia_path %></li>
-						<li role="presentation"><%= link_to "Thoughtful Answers", ta_path %></li>
+						<li role="presentation"><%= link_to "Answers", a_path %></li>
 					</ul>
 				</li>
 				<li><%= link_to "Users", users_path, class: "nav_links" %></li>

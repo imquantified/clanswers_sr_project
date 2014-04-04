@@ -29,19 +29,9 @@ namespace :db do
 		50.times do
 			content_one = Faker::Lorem.sentence(7)
 			content_two = Faker::Lorem.sentence(7)
-			content_three = Faker::Lorem.sentence(7)
-			content_four = Faker::Lorem.sentence(7)
-			content_five = Faker::Lorem.sentence(7)
-			content_six = Faker::Lorem.sentence(7)
 			users.each do |user| 
-				a = user.quick_questions.create!(content: content_one)
-				b = user.interest_questions.create!(content: content_two)
-				c = user.thoughtful_questions.create!(content: content_three)
-				# a, b, and c are equal to user.*_questions.first
-
-				a.quick_answers.create!(content: content_four, user_id: user.id)
-				b.interest_answers.create!(content: content_five, user_id: user.id)
-				c.thoughtful_answers.create!(content: content_six, user_id: user.id)
+				a = user.questions.create!(content: content_one)
+				a.answers.create!(content: content_two, user_id: user.id, quick_flag: true)
 			end 
 		end
 	end

@@ -2,14 +2,11 @@ Clanswers::Application.routes.draw do
   
   resources :users
   
-  resources :quick_answers, only: [:create, :destroy, :show]
-  resources :interest_answers, only: [:create, :destroy, :show]
-  resources :thoughtful_answers, only: [:create, :destroy, :show]
+  resources :answers, only: [:create, :destroy, :show]
+  resources :questions, only: [:create, :destroy, :show]
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :quick_questions, only: [:create, :destroy, :show]
-  resources :interest_questions, only: [:create, :destroy, :show]
-  resources :thoughtful_questions, only: [:create, :destroy, :show]
+
   #tracks updates
   resources :activities
 
@@ -22,16 +19,8 @@ Clanswers::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
-  #answer routes
-  match '/qa',  to: 'quick_answers#show',     via: 'get'
-  match '/ia',  to: 'interest_answers#show',     via: 'get'
-  match '/ta',  to: 'thoughtful_answers#show',     via: 'get'
-
-
-  #question routes
-  match '/qq',  to: 'quick_questions#show',     via: 'get'
-  match '/iq',  to: 'interest_questions#show',     via: 'get'
-  match '/tq',  to: 'thoughtful_questions#show',     via: 'get'
+  match '/a',  to: 'answers#show',     via: 'get'
+  match '/q',  to: 'questions#show',     via: 'get'
 
   match '/edit', to: 'users#edit',  via: 'patch'
   

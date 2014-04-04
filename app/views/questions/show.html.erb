@@ -1,0 +1,18 @@
+<% provide(:title, "Questions - #{current_user.username} ") %>
+
+<div class="row">
+	<aside class="col-xs-3">
+		<section>
+			<%= render 'shared/user_info' %>
+		</section>
+		<br>
+		<section>
+			<% provide(:placeholder_text, "Ask a question...") %>
+			<%= render partial: "shared/input_form", locals: { input_item: @question } %>
+		</section>
+	</aside>
+	<div class="col-xs-9">
+		<h1 class="feed_header">Questions Feed</h1>
+		<%= render 'shared/feed' %>
+	</div>
+</div>
