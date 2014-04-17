@@ -19,15 +19,6 @@ class User < ActiveRecord::Base
 		Question.where("user_id = ?", id)
 	end
 
-	#distinctions between questions and answers is meaningless for now.
-	def iq_feed
-		Question.where("user_id = ?", id)
-	end
-
-	def tq_feed
-		Question.where("user_id = ?", id)
-	end
-
 	def all_question_feed
 		#Could be used to pull other user data? Pulls every person, essentially a quick question feed for everyone
 		Question.joins('LEFT OUTER JOIN users ON questions.user_id = users.id')
@@ -38,12 +29,8 @@ class User < ActiveRecord::Base
 		Answer.where("user_id = ?", id)
 	end
 
-	def ia_feed
-		Answer.where("user_id = ?", id)
-	end
-
-	def ta_feed
-		Answer.where("user_id = ?", id)
+	def all_answer_feed
+		Answer.joins('LEFT OUTER JOIN users ON answers.user_id = users.id')		
 	end
 
 	def User.new_remember_token

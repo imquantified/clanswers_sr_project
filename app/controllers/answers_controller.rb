@@ -24,6 +24,11 @@ class AnswersController < ApplicationController
 		@answer = current_user.answers.build
 		@feed_items = current_user.qa_feed.paginate(page: params[:page])
 		# @quick_answer_build = current_user.answers.build(answer_params)
+	end	
+
+	def showall
+		@answer = current_user.answers.build
+		@feed_items = current_user.all_answer_feed.paginate(page: params[:page])
 	end
 
 	private

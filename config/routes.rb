@@ -21,6 +21,8 @@ Clanswers::Application.routes.draw do
 
   match '/a',  to: 'answers#show',     via: 'get'
   match '/q',  to: 'questions#show',     via: 'get'
+  
+  match '/aa',  to: 'answers#showall',     via: 'get'
 
   match '/edit', to: 'users#edit',  via: 'patch'
   

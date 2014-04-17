@@ -1,40 +1,37 @@
 <% provide(:title, @user.username) %>
 
 <div class="container">
-<div class="row">
-	<aside class="col-xs-3">
-		<section>
-			<span class="row">
-				<%= gravatar_for @user %>
-			</span>
-			<h1 class="row">
-				<b><%= @user.username %></b>
-			</h1>
-			<h2 class="row">
-				<%= @user.email %>
-			</h2>
-		</section>
-	</aside>
-</div>
+	<div class="row">
+		<aside class="col-xs-3">
+			<section>
+				<span class="row">
+					<%= gravatar_for @user %>
+				</span>
+				<h1 class="row">
+					<b><%= @user.username %></b>
+				</h1>
+				<h2 class="row">
+					<%= @user.email %>
+				</h2>
+			</section>
+		</aside>
 
-<div class="row">
-	<div class="col-xs-offset-3 col-xs-9">
-		<% if @user.questions.any? %>
-			<h3>Questions (<%= @user.questions.count %>)</h3>
-			<ol class="questions">
-				<%= render @questions.all(limit: 5) %>
-			</ol>
-			<%= link_to "Questions", q_path %>
-		<% end %>
+		<div class="col-xs-8">
+			<% if @user.questions.any? %>
+				<h3>Questions (<%= @user.questions.count %>)</h3>
+				<ol class="questions">
+					<%= render @questions.all(limit: 5) %>
+				</ol>
+				<%# link_to "Questions", q_path %>
+			<% end %>
 
-		<% if @user.answers.any? %>
-			<h3>Answers (<%= @user.answers.count %>)</h3>
-			<ol class="questions">
-				<%= render @answers.all(limit: 5) %>
-			</ol>
-			<%= link_to "Answers", a_path %>
-		<% end %>
+			<% if @user.answers.any? %>
+				<h3>Answers (<%= @user.answers.count %>)</h3>
+				<ol class="questions">
+					<%= render @answers.all(limit: 5) %>
+				</ol>
+				<%# link_to "Answers", a_path %>
+			<% end %>
+		</div>
 	</div>
-</div>
-
 </div>

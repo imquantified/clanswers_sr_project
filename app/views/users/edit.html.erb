@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-3">
+					<div class="col-sm-offset-2 col-md-5">
 					<%= f.submit "Update my account", class: "btn btn-large btn-primary" %>
 					</div>
 				</div>
@@ -60,6 +60,11 @@
 		</div>
 	</div>
 
-	<%= gravatar_for(@user) %>
-	<a href="http://gravatar.com/emails">Change</a>
+	<div class="row">
+		<h1>Change profile picture</h1>
+		<div class="col-sm-6 col-sm-offset-4">
+			<%= gravatar_for(@user) %>
+			<a href="http://gravatar.com/emails" class="btn btn-large btn-primary">Change</a>
+		</div>
+	</div>
 </div>
